@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "env-var": "^7.5.0",
-    "env-vars": "^0.5.0",
     "sql-bricks": "^3.0.1"
   }
 }
