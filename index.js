@@ -7,3 +7,4 @@ export const app = createServer(requestHandler)
     await startServer()
     console.log('server running at http://localhost:' + config.PORT)
   })
+  

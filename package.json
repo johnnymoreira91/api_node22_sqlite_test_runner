@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --test --env-file .env.test.local src/**/*.test.js",
+    "test": "node --test --env-file .env.test.local --experimental-sqlite src/**/*.test.js",
     "test:dev": "node --test --watch --experimental-sqlite src/**/*.test.js",
     "dev": "node --inspect --watch --experimental-sqlite --env-file .env index.js"
   },
