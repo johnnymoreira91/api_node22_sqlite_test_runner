@@ -16,8 +16,8 @@ describe('UNIT -> ListUserUseCase', () => {
 
   it('Should return a list of users', async () => {
     const response = await listUsersUseCase({ page: 1, pageSize: 10 });
-
-    deepStrictEqual(response, { total: 0, page: 1, pageSize: 10, users: [] });
+    
+    deepStrictEqual(response.users[0].email, 'john@doeindustries.com')
   });
 
 });

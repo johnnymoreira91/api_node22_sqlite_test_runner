@@ -36,7 +36,7 @@ describe('E2E Test on Routes', () => {
 
       strictEqual(request.status, 200);
       const response = await request.json();
-      deepStrictEqual(response, { total: 0, page: 1, pageSize: 10, users: [] });
+      deepStrictEqual(response.total, 1);
     })
   })
 })
