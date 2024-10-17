@@ -1,11 +1,11 @@
 {
-  "name": "node22-js-sqlit-test",
+  "name": "node22-js-sqlite-test",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --test --env-file .env.test.local --experimental-sqlite src/**/*.test.js",
+    "test": "node --test --env-file .env.test.local --experimental-sqlite src/**/__tests__/*.test.js",
     "test:e2e": "node --test --env-file .env.test.local --experimental-sqlite src/__tests__/e2e.test.js",
     "test:dev": "node --test --watch --experimental-sqlite src/**/*.test.js",
     "dev": "node --inspect --watch --experimental-sqlite --env-file .env index.js"
