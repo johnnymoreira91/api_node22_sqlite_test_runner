@@ -1,5 +1,10 @@
+import { verifyAndCreateTableUsers } from './infra/database/user/table.js';
 import { healthCheck } from './useCase/healthCheck/healthCheck.js';
 import { routeNotFound } from './useCase/routeNotFound/routeNotFoud.js';
+
+async function startServer() {
+  await verifyAndCreateTableUsers();
+}
 
 /**
  * Function include all requests
@@ -15,5 +20,6 @@ async function requestHandler(request, response) {
 }
 
 export {
+  startServer,
   requestHandler
 }

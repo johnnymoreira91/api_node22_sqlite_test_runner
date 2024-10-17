@@ -10,3 +10,7 @@ logs
 .env.test.local
 .env.test
 .env.production.local
+
+dbdev.sqlite3
+dbtest.sqlite3
+dbprod.sqlite3
