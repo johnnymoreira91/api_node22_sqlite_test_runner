@@ -1,0 +1,12 @@
+node_modules
+coverage
+dist
+lib
+logs
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.test
+.env.production.local

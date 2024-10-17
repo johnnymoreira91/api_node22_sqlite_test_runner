@@ -1,0 +1,19 @@
+{
+  "name": "node22-js-sqlit-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test --env-file .env.test.local src/**/*.test.js",
+    "test:dev": "node --test --watch --experimental-sqlite src/**/*.test.js",
+    "dev": "node --inspect --watch --experimental-sqlite --env-file .env index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "env-var": "^7.5.0",
+    "env-vars": "^0.5.0"
+  }
+}
