@@ -1,6 +1,7 @@
 import { verifyAndCreateTableUsers } from './infra/database/user/table.js';
 import { healthCheck } from './useCase/healthCheck/healthCheck.js';
 import { routeNotFound } from './useCase/routeNotFound/routeNotFoud.js';
+import { listUsersRoute } from './useCase/user/listUsers/listUsersRoute.js';
 
 async function startServer() {
   await verifyAndCreateTableUsers();
@@ -14,6 +15,10 @@ async function startServer() {
 async function requestHandler(request, response) {
   if (request.url === '/healthcheck') {
     return healthCheck(request, response);
+  }
+
+  if (request.url === '/v1/users') {
+    return await listUsersRoute(request, response);
   }
 
   routeNotFound(request, response);
