@@ -39,4 +39,24 @@ describe('E2E Test on Routes', () => {
       deepStrictEqual(response.total, 1);
     })
   })
+
+  describe('Create User Route', () => {
+    it('Should return 201 as statusCode', async () => {
+      const request = await fetch(`${BASE_URL}/v1/users`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: 'New Test User',
+          email: 'newuser@test.com',
+          password: 'test123'
+        })
+      });
+
+      strictEqual(request.status, 201);
+      const response = await request.json();
+      deepStrictEqual(response.name, 'New Test User');
+    })
+  })
 })

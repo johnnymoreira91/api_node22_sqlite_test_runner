@@ -96,6 +96,15 @@ class User {
     const result = stmt.run(id);
     return result.changes > 0;
   }
+
+  toJson() {
+    return {
+      id: this.id,
+      name: this.name,
+      email: this.email,
+      password: this.password
+    };
+  }
 }
 
 export default User;
