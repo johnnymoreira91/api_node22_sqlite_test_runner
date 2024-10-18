@@ -13,18 +13,21 @@ class User {
 
   static async create({ name, email, password }) {
     const { text, values } = sqlBricks
-      .insertInto(this._tableName, { name, email, password })
+      .insertInto('users', { name, email, password })
       .toParams({ placeholder: '?' });
 
     const insertStatement = db.prepare(text);
     const result = insertStatement.run(...values);
 
-    return new User({
+    const user = new User({
       id: result.lastInsertRowid,
       name,
       email,
       password
     });
+    
+    await user.save()
+    return user
   }
 
   static async findById(id) {
@@ -42,7 +45,7 @@ class User {
 
   async save() {
     const stmt = db.prepare(`
-      UPDATE ${this._tableName} 
+      UPDATE users
       SET name = ?, email = ?, password = ? 
       WHERE id = ?;
     `);
