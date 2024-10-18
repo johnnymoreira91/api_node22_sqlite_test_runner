@@ -2,6 +2,7 @@ import { describe, before, after, it } from 'node:test';
 import { deepStrictEqual, ok, strictEqual } from 'node:assert';
 
 const BASE_URL = 'http://localhost:3000';
+let _globalToken = ''
 
 describe('E2E Test on Routes', () => {
   let app;
@@ -28,18 +29,6 @@ describe('E2E Test on Routes', () => {
     })
   })
 
-  describe('List Users Route', () => {
-    it('Should return 200 as statusCode', async () => {
-      const request = await fetch(`${BASE_URL}/v1/users`, {
-        method: 'GET',
-      })
-
-      strictEqual(request.status, 200);
-      const response = await request.json();
-      deepStrictEqual(response.total, 1);
-    })
-  })
-
   describe('Create User Route', () => {
     it('Should return 201 as statusCode', async () => {
       const request = await fetch(`${BASE_URL}/v1/users`, {
@@ -57,6 +46,21 @@ describe('E2E Test on Routes', () => {
       strictEqual(request.status, 201);
       const response = await request.json();
       deepStrictEqual(response.name, 'New Test User');
+    })
+  })
+
+  describe('List Users Route', () => {
+    it('Should return 200 as statusCode', async () => {
+      const request = await fetch(`${BASE_URL}/v1/users`, {
+        method: 'GET',
+        headers: {
+          authorization: _globalToken
+        }
+      })
+
+      strictEqual(request.status, 200);
+      const response = await request.json();
+      deepStrictEqual(response.total, 1);
     })
   })
 })
